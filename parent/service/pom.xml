@@ -28,6 +28,63 @@
       <version>4.11</version>
       <scope>test</scope>
     </dependency>
+
+    <dependency>
+      <groupId>axis</groupId>
+      <artifactId>axis-ant</artifactId>
+      <version>1.2</version>
+  </dependency>
+  
   </dependencies>
+
+  <build>
+
+    <plugins>
+      <plugin>
+        <groupId>com.sonatype.clm</groupId>
+        <artifactId>clm-maven-plugin</artifactId>
+        <configuration>
+          <serverUrl>http://localhost:8070</serverUrl>
+          <applicationId>mm-service</applicationId>
+          <stage>build</stage>
+          <username>admin</username>
+          <password>admin123</password>
+        </configuration>
+        <executions>
+          <execution>
+            <goals>
+              <goal>index</goal>
+              <goal>attach</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      </plugins>
+
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>com.sonatype.clm</groupId>
+          <artifactId>clm-maven-plugin</artifactId>
+          <configuration>
+            <serverUrl>http://localhost:8070</serverUrl>
+            <applicationId>core</applicationId>
+            <stage>build</stage>
+            <username>admin</username>
+            <password>admin123</password>
+          </configuration>
+          <executions>
+            <execution>
+                <phase>package</phase>
+                <goals>
+                    <goal>evaluate</goal>
+                </goals>
+            </execution>
+        </executions>
+        </plugin>
+        </plugins>
+      </pluginManagement>
+  
+    </build>
 
 </project>

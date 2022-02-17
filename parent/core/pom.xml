@@ -28,6 +28,20 @@
       <version>4.11</version>
       <scope>test</scope>
     </dependency>
+
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-api</artifactId>
+      <version>1.7.7</version>
+      <type>jar</type>
+  </dependency>
+  <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-log4j12</artifactId>
+      <version>1.7.7</version>
+      <type>jar</type>
+  </dependency>
+
   </dependencies>
 
   <build>
@@ -38,7 +52,7 @@
         <artifactId>clm-maven-plugin</artifactId>
         <configuration>
           <serverUrl>http://localhost:8070</serverUrl>
-          <applicationId>core</applicationId>
+          <applicationId>mm-core</applicationId>
           <stage>build</stage>
           <username>admin</username>
           <password>admin123</password>
@@ -70,13 +84,13 @@
             <execution>
                 <phase>package</phase>
                 <goals>
-                    <goal>attach</goal>
+                    <goal>evaluate</goal>
                 </goals>
             </execution>
         </executions>
         </plugin>
         </plugins>
-        </pluginManagement>
+      </pluginManagement>
   
     </build>
 
